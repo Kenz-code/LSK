@@ -1,0 +1,11 @@
+[gd_scene format=2]
+
+[node name="Seperator" type="ColorRect"]
+margin_left = -6.0
+margin_right = 746.0
+margin_bottom = 1.0
+rect_min_size = Vector2( 752, 1 )
+color = Color( 0.341176, 0.396078, 0.454902, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

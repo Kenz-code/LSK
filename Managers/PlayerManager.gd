@@ -5,7 +5,8 @@ var players = {}
 
 var player_demo = {
 	"Wins": 0,
-	"Loses": 0
+	"Loses": 0,
+	"Color": Color.white
 }
 
 func save_players():
