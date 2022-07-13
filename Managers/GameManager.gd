@@ -1,4 +1,7 @@
 extends Node
 
 
-var num_players = 0
+var players_playing = []
+
+var rounds = 0
+var max_score = 0

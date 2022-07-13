@@ -9,6 +9,8 @@ var player_demo = {
 	"Color": Color.white
 }
 
+signal player_created
+
 func save_players():
 	var file = File.new()
 	var error = file.open(save_path, File.WRITE)
