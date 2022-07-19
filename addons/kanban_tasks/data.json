@@ -1,0 +1,56 @@
+{
+  "categories": [
+    {
+      "title": "Bug",
+      "color": "ee5253"
+    },
+    {
+      "title": "Feature",
+      "color": "2e86de"
+    }
+  ],
+  "columns": [
+    {
+      "stages": [
+        0
+      ]
+    },
+    {
+      "stages": [
+        1
+      ]
+    },
+    {
+      "stages": [
+        2
+      ]
+    }
+  ],
+  "stages": [
+    {
+      "title": "Todo",
+      "tasks": [
+        0
+      ]
+    },
+    {
+      "title": "Doing",
+      "tasks": [
+
+      ]
+    },
+    {
+      "title": "Done",
+      "tasks": [
+
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "category": 1,
+      "title": "Make button grow and shrink when hovering",
+      "details": ""
+    }
+  ]
+}
