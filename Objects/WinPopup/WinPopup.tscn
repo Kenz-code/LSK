@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://1.tres" type="Theme" id=1]
+[ext_resource path="res://Font/64.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Objects/WinPopup/WinPopup.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Particles/Confetti.png" type="Texture" id=4]
+
+[sub_resource type="Gradient" id=1]
+interpolation_mode = 2
+offsets = PoolRealArray( 0.00558659, 0.972067 )
+colors = PoolColorArray( 0.113725, 0.819608, 0.631373, 1, 0.996078, 0.792157, 0.341176, 1 )
+
+[node name="WinPopup" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -130.0
+margin_top = -134.0
+margin_right = 882.0
+margin_bottom = 1672.0
+focus_mode = 1
+color = Color( 0.133333, 0.184314, 0.243137, 1 )
+
+[node name="WinningPlayer" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -288.5
+margin_top = -36.0
+margin_right = 288.5
+margin_bottom = 36.0
+theme_type_variation = "BigFont"
+custom_fonts/font = ExtResource( 2 )
+text = "Player won!"
+align = 1
+autowrap = true
+
+[node name="ConfettiLeft" type="CPUParticles2D" parent="."]
+position = Vector2( -1, 1524 )
+emitting = false
+amount = 10
+lifetime = 7.0
+one_shot = true
+speed_scale = 1.59
+explosiveness = 0.88
+texture = ExtResource( 4 )
+direction = Vector2( 0.3, -1 )
+spread = 11.97
+gravity = Vector2( 0, 250 )
+initial_velocity = 825.69
+angular_velocity = 184.95
+angular_velocity_random = 0.28
+angle_random = 1.0
+scale_amount = 3.0
+color_initial_ramp = SubResource( 1 )
+
+[node name="ConfettiRight" type="CPUParticles2D" parent="."]
+position = Vector2( 697, 1532 )
+emitting = false
+amount = 10
+lifetime = 6.5
+one_shot = true
+speed_scale = 1.59
+explosiveness = 0.88
+texture = ExtResource( 4 )
+direction = Vector2( -0.3, -1 )
+spread = 11.97
+gravity = Vector2( 0, 250 )
+initial_velocity = 825.69
+angular_velocity = 184.95
+angular_velocity_random = 0.28
+angle_random = 1.0
+scale_amount = 3.0
+color_initial_ramp = SubResource( 1 )

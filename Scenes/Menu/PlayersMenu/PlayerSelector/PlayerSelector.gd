@@ -21,11 +21,14 @@ func _ready() -> void:
 		y.connect("just_unchecked",self,"_on_player_just_unchecked",[y._name])
 
 func _on_player_just_checked(_name: String):
-	player_list.push_back(_name)
+	var player_score = GameManager.player_score_placeholder.duplicate()
+	player_score["name"] = _name
+	player_list.push_back(player_score)
 
 func _on_player_just_unchecked(_name: String):
-	var pos = player_list.find(_name)
-	player_list.pop_at(pos)
+	for p in player_list:
+		if p["name"] == _name:
+			player_list.pop_at(player_list.find(p))
 
 func _on_Back_pressed() -> void:
 	self.hide()

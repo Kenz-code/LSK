@@ -14,3 +14,7 @@ func _on_Players_pressed() -> void:
 
 func _on_NewGame_pressed() -> void:
 	$UI/NewGameMenu.show()
+
+
+func _on_Leaderboard_pressed() -> void:
+	$UI/LeaderboardMenu.show()

@@ -1,25 +1,42 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Keeper/Players.gd" type="Script" id=1]
 [ext_resource path="res://1.tres" type="Theme" id=2]
+[ext_resource path="res://Scenes/Keeper/Keeper.gd" type="Script" id=3]
+[ext_resource path="res://Assets/CheckerBoard.png" type="Texture" id=4]
+[ext_resource path="res://Objects/WinPopup/WinPopup.tscn" type="PackedScene" id=5]
 
 [node name="Keeper" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource( 3 )
+
+[node name="CheckerBoard" type="Sprite" parent="."]
+position = Vector2( 0, -50 )
+texture = ExtResource( 4 )
+centered = false
 
 [node name="Players" type="GridContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 12.0
-margin_top = 228.0
-margin_bottom = -136.0
-custom_constants/vseparation = 200
+margin_top = 200.0
+margin_bottom = -164.0
+custom_constants/vseparation = 100
 columns = 2
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
+[node name="RoundNum" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -112.0
+margin_top = 75.0
+margin_right = 112.0
+margin_bottom = 37.0
+text = "Round"
+align = 1
+valign = 1
+
+[node name="WinPopup" parent="." instance=ExtResource( 5 )]
+visible = false

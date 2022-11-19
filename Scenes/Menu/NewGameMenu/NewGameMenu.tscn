@@ -22,9 +22,6 @@ margin_right = 882.0
 margin_bottom = 1672.0
 focus_mode = 1
 color = Color( 0.133333, 0.184314, 0.243137, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Back" type="Button" parent="."]
 anchor_left = 1.0
@@ -67,6 +64,7 @@ text = "Start Game"
 [node name="NumberKeyboard" parent="." instance=ExtResource( 3 )]
 margin_top = 1482.0
 margin_bottom = 486.0
+not_node_path = true
 
 [node name="GridContainer" type="GridContainer" parent="."]
 anchor_left = 0.5
@@ -106,18 +104,18 @@ __meta__ = {
 
 [node name="RoundsCheckBox" type="CheckBox" parent="GridContainer"]
 margin_left = 25.0
-margin_top = 120.0
+margin_top = 121.0
 margin_right = 181.0
-margin_bottom = 167.0
+margin_bottom = 168.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 text = "Rounds"
 
 [node name="Rounds" type="LineEdit" parent="GridContainer"]
 margin_left = 250.0
-margin_top = 120.0
+margin_top = 121.0
 margin_right = 368.0
-margin_bottom = 167.0
+margin_bottom = 168.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 max_length = 6
@@ -130,6 +128,28 @@ __meta__ = {
 
 [node name="PlayerSelector" parent="." instance=ExtResource( 4 )]
 visible = false
+
+[node name="EnterMaxOrRoundsPopup" type="AcceptDialog" parent="."]
+margin_left = 87.0
+margin_top = 533.0
+margin_right = 617.0
+margin_bottom = 707.0
+rect_min_size = Vector2( 530, 174 )
+theme = ExtResource( 1 )
+window_title = "Error"
+dialog_text = "Please enter a Max Score or how many rounds you want!"
+dialog_autowrap = true
+
+[node name="EnterPlayersPopup" type="AcceptDialog" parent="."]
+margin_left = 87.0
+margin_top = 533.0
+margin_right = 617.0
+margin_bottom = 707.0
+rect_min_size = Vector2( 530, 174 )
+theme = ExtResource( 1 )
+window_title = "Error"
+dialog_text = "Please choose players for game"
+dialog_autowrap = true
 
 [connection signal="focus_entered" from="ColorRect" to="." method="_on_ColorRect_focus_entered"]
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]

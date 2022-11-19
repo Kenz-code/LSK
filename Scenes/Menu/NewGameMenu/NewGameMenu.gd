@@ -64,11 +64,17 @@ func _on_Players_pressed() -> void:
 
 
 func _on_Start_pressed() -> void:
+	if int($GridContainer/MaxScore.text) == 0 and int($GridContainer/Rounds.text) == 0:
+		$EnterMaxOrRoundsPopup.popup_centered()
+		return
+	elif $PlayerSelector.player_list.size() < 1:
+		$EnterPlayersPopup.popup_centered()
+		return
 	if $GridContainer/MaxScoreCheckBox.pressed == true:
-		GameManager.rounds = 0
+		GameManager.max_rounds = 0
 		GameManager.max_score = int($GridContainer/MaxScore.text)
 	else:
-		GameManager.rounds = int($GridContainer/Rounds.text)
+		GameManager.max_rounds = int($GridContainer/Rounds.text)
 		GameManager.max_score = 0
 	for _player in $PlayerSelector.player_list:
 		GameManager.players_playing.push_back(_player)

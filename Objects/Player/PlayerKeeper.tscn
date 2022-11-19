@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://1.tres" type="Theme" id=1]
 [ext_resource path="res://Font/16.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Objects/NumberKeyboard/NumberKeyboard.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/Player/PlayerKeeper.gd" type="Script" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
@@ -21,46 +22,38 @@ margin_left = -220.0
 margin_top = -40.0
 margin_right = 120.0
 margin_bottom = 60.0
+rect_min_size = Vector2( 340, 100 )
 size_flags_horizontal = 2
 size_flags_vertical = 4
 theme = ExtResource( 1 )
 script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Button" type="Button" parent="."]
-margin_right = 160.0
+[node name="Name" type="Button" parent="."]
+margin_right = 174.0
 margin_bottom = 60.0
 text = "Name"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+clip_text = true
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-margin_top = 80.0
-margin_right = 340.0
-margin_bottom = 100.0
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -19.0
+margin_right = 338.0
 custom_styles/fg = SubResource( 1 )
 value = 60.0
 percent_visible = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Score" type="HBoxContainer" parent="."]
-margin_left = 160.0
-margin_right = 340.0
-margin_bottom = 60.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -159.0
+margin_bottom = 71.0
 
 [node name="Has" type="Label" parent="Score"]
-modulate = Color( 0.196078, 1, 0, 1 )
-margin_top = 11.0
-margin_right = 88.0
-margin_bottom = 48.0
+modulate = Color( 0.0627451, 0.67451, 0.517647, 1 )
+margin_top = 17.0
+margin_right = 77.0
+margin_bottom = 54.0
 size_flags_horizontal = 7
 text = "6000"
 align = 1
@@ -69,11 +62,11 @@ __meta__ = {
 }
 
 [node name="Needs" type="Label" parent="Score"]
-modulate = Color( 1, 0, 0, 1 )
-margin_left = 92.0
-margin_top = 11.0
-margin_right = 180.0
-margin_bottom = 48.0
+modulate = Color( 0.933333, 0.321569, 0.32549, 1 )
+margin_left = 81.0
+margin_top = 17.0
+margin_right = 159.0
+margin_bottom = 54.0
 size_flags_horizontal = 7
 text = "4000"
 align = 1
@@ -82,14 +75,93 @@ __meta__ = {
 }
 
 [node name="Percent" type="Label" parent="."]
-margin_left = 20.0
-margin_top = 63.0
-margin_right = 100.0
-margin_bottom = 82.0
+margin_left = -8.0
+margin_top = 62.0
+margin_right = 92.0
+margin_bottom = 81.0
 custom_fonts/font = ExtResource( 2 )
 text = "60%"
 align = 1
 valign = 3
+
+[node name="Input" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Control" type="Control" parent="Input"]
+visible = false
+margin_right = 720.0
+margin_bottom = 1480.0
+theme = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ColorRect" type="ColorRect" parent="Input/Control"]
+margin_left = -130.0
+margin_top = -134.0
+margin_right = 882.0
+margin_bottom = 1672.0
+focus_mode = 1
+color = Color( 0.133333, 0.184314, 0.243137, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreInput" type="LineEdit" parent="Input/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -278.0
+margin_top = -45.5
+margin_right = 278.0
+margin_bottom = 45.5
+caret_blink = true
+caret_blink_speed = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Input/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -274.0
+margin_top = -250.0
+margin_right = 274.0
+margin_bottom = -150.0
+text = "Enter score:"
+align = 1
+valign = 1
+
+[node name="Enter" type="Button" parent="Input/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -87.0
+margin_top = 100.0
+margin_right = 88.0
+margin_bottom = 160.0
+text = "Enter"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NumberKeyboard" parent="Input/Control" instance=ExtResource( 3 )]
+unique_name_in_owner = true
+line_edit_path = NodePath("../ScoreInput")
+
+[node name="Back" type="Button" parent="Input/Control"]
+margin_left = 75.0
+margin_top = 50.0
+margin_right = 175.0
+margin_bottom = 97.0
+text = "Back"
+
+[connection signal="pressed" from="Name" to="." method="_on_Name_pressed"]
+[connection signal="focus_entered" from="Input/Control/ColorRect" to="." method="_on_ColorRect_focus_entered"]
+[connection signal="focus_entered" from="Input/Control/ScoreInput" to="." method="_on_ScoreInput_focus_entered"]
+[connection signal="pressed" from="Input/Control/Enter" to="." method="_on_Enter_pressed"]
+[connection signal="pressed" from="Input/Control/Back" to="." method="_on_Back_pressed"]

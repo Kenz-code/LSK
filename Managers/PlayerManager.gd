@@ -1,12 +1,12 @@
 extends Node
 
-var save_path = "user://players.dat"
+var save_path = "user://players.kd"
 var players = {}
 
 var player_demo = {
 	"Wins": 0,
 	"Loses": 0,
-	"Color": Color.white
+	"Color": Color.white,
 }
 
 signal player_created
@@ -19,6 +19,7 @@ func save_players():
 		file.close()
 	else:
 		print(error)
+	print(players)
 
 func load_players():
 	var file = File.new()
