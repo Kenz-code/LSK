@@ -7,15 +7,9 @@ extends Control
 
 onready var _win_popup = $WinPopup
 
-func _ready() -> void:
-	if GameManager.max_rounds == 0:
-		$RoundNum.hide()
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$RoundNum.text = "Round #" + str(GameManager._round)
-	
 	if GameManager.max_score != 0:
 		if _win_popup.visible == false:
 			for p in GameManager.players_playing:

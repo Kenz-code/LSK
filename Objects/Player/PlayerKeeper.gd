@@ -9,6 +9,7 @@ var s
 var player_index = -1
 
 func _ready() -> void:
+	$"%NumberKeyboard"._hide()
 	$ProgressBar.visible = not disable_progress_bar
 	$Percent.visible = not disable_progress_bar
 	
@@ -31,6 +32,7 @@ func _process(delta: float) -> void:
 	$ProgressBar.value = _score
 	$Score/Has.text = str(_score)
 	$Score/Needs.text = str(0)
+	$Percent.text = str(stepify($ProgressBar.value/$ProgressBar.max_value*100,1))+"%"
 
 
 func _on_ScoreInput_focus_entered() -> void:
@@ -41,12 +43,16 @@ func _on_ColorRect_focus_entered() -> void:
 	$Input/Control/NumberKeyboard._hide()
 
 
+func _on_NumberKeyboard_focus_exited():
+	$Input/Control/NumberKeyboard._hide()
+
 func _on_Name_pressed() -> void:
 	$Input/Control.show()
 
 
 func _on_Back_pressed() -> void:
 	$Input/Control.hide()
+	hide_everything()
 
 
 func _on_Enter_pressed() -> void:
@@ -56,4 +62,10 @@ func _on_Enter_pressed() -> void:
 	for p in GameManager.players_playing:
 		if p["name"] == _name:
 			p["score"] += add_score
+	hide_everything()
 	
+
+func hide_everything():
+	$Input/Control/NumberKeyboard._hide()
+	get_node("%NumberKeyboard").text.clear()
+
