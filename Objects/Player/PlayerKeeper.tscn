@@ -116,6 +116,7 @@ margin_left = -278.0
 margin_top = -45.5
 margin_right = 278.0
 margin_bottom = 45.5
+virtual_keyboard_enabled = false
 caret_blink = true
 caret_blink_speed = 0.5
 __meta__ = {

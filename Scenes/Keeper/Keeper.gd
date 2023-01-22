@@ -9,7 +9,7 @@ onready var _win_popup = $WinPopup
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if GameManager.max_score != 0:
 		if _win_popup.visible == false:
 			for p in GameManager.players_playing:
@@ -22,9 +22,11 @@ func win(player):
 	_win_popup.emit_confetti()
 	_win_popup.set_winning_player(player["name"])
 	for p in PlayerManager.players:
-		if str(p) == player["name"]:
-			PlayerManager.players[p]["Wins"] += 1
-		else:
-			PlayerManager.players[p]["Loses"] += 1
+		for l in GameManager.players_playing:
+			if str(l.name) == str(p):
+				if str(p) == player["name"]:
+					PlayerManager.players[p]["Wins"] += 1
+				else:
+					PlayerManager.players[p]["Loses"] += 1
 	
 	PlayerManager.save_players()

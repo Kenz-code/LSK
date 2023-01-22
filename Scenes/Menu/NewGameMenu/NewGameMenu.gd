@@ -34,8 +34,8 @@ func _on_Start_pressed() -> void:
 		GameManager.max_score = 2147483647
 	else:
 		GameManager.max_score = int($VboxContainer/MaxScore.text)
-	print(GameManager.max_score)
 	
+	GameManager.players_playing.clear()
 	for _player in $PlayerSelector.player_list:
 		GameManager.players_playing.push_back(_player)
 	get_tree().change_scene("res://Scenes/Keeper/Keeper.tscn")
