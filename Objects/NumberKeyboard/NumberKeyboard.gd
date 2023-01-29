@@ -32,9 +32,9 @@ func _process(delta: float) -> void:
 
 
 func _show():
-	$Tween.interpolate_property(self,"rect_position",rect_position,Vector2(0,996),0.2,Tween.TRANS_CUBIC,Tween.EASE_OUT)
+	$Tween.interpolate_property(self,"rect_position",rect_position,Vector2(0,get_viewport().size.y-rect_size.y),0.2,Tween.TRANS_CUBIC,Tween.EASE_OUT)
 	$Tween.start()
 
 func _hide():
-	$Tween.interpolate_property(self,"rect_position",rect_position,Vector2(0,1482),0.2,Tween.TRANS_CUBIC,Tween.EASE_OUT)
+	$Tween.interpolate_property(self,"rect_position",rect_position,Vector2(0,get_viewport().size.y),0.2,Tween.TRANS_CUBIC,Tween.EASE_OUT)
 	$Tween.start()

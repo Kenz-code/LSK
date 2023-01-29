@@ -14,9 +14,9 @@ func _ready() -> void:
 			percent = (float(n["Wins"]) / float(games_played)) * 100
 		else:
 			percent = 0
-		if $VBoxContainer.get_child_count() != 0:
+		if $"%VBoxContainer".get_child_count() != 0:
 			var duplicate = false
-			for child in $VBoxContainer.get_children():
+			for child in $"%VBoxContainer".get_children():
 				if int(child.name) == int(percent):
 					p.name = str(int(percent) + 1)
 					duplicate = true
@@ -29,14 +29,14 @@ func _ready() -> void:
 		p._color = n.Color
 		p.wins = n.Wins
 		p.losses = n.Loses
-		$VBoxContainer.add_child(p)
+		$"%VBoxContainer".add_child(p)
 	
 	var pos = 0
 	var iteration = 100
 	while iteration > -1:
-		for child in $VBoxContainer.get_children():
+		for child in $"%VBoxContainer".get_children():
 			if int(child.name) == iteration:
-				$VBoxContainer.move_child(child,pos)
+				$"%VBoxContainer".move_child(child,pos)
 				pos += 1
 		iteration -= 1
 
@@ -53,9 +53,9 @@ func _on_player_created():
 		percent = (float(n["Wins"]) / float(games_played)) * 100
 	else:
 		percent = 0
-	if $VBoxContainer.get_child_count() != 0:
+	if $"%VBoxContainer".get_child_count() != 0:
 		var duplicate = false
-		for child in $VBoxContainer.get_children():
+		for child in $"%VBoxContainer".get_children():
 			if int(child.name) == int(percent):
 				p.name = str(int(percent) + 1)
 				duplicate = true
@@ -68,5 +68,5 @@ func _on_player_created():
 	p._color = n.Color
 	p.wins = n.Wins
 	p.losses = n.Loses
-	$VBoxContainer.add_child(p)
+	$"%VBoxContainer".add_child(p)
 

@@ -21,7 +21,7 @@ shadow_offset = Vector2( 2, 2 )
 [node name="LeaderboardPlayer" type="Control"]
 margin_right = 356.0
 margin_bottom = 141.0
-rect_min_size = Vector2( 0, 141 )
+rect_min_size = Vector2( 365, 141 )
 mouse_filter = 1
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
@@ -34,8 +34,8 @@ size_flags_horizontal = 4
 theme = ExtResource( 1 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBox"]
-margin_left = 104.0
-margin_right = 252.0
+margin_left = 108.0
+margin_right = 256.0
 margin_bottom = 40.0
 size_flags_horizontal = 4
 theme = ExtResource( 1 )
@@ -54,7 +54,7 @@ text = "Player"
 
 [node name="Details" type="Label" parent="VBox"]
 margin_top = 44.0
-margin_right = 356.0
+margin_right = 365.0
 margin_bottom = 81.0
 text = "Win percentage: %100"
 align = 1

@@ -12,17 +12,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -130.0
-margin_top = -134.0
-margin_right = 882.0
-margin_bottom = 1672.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 focus_mode = 1
-color = Color( 0.133333, 0.184314, 0.243137, 1 )
 
 [node name="Back" type="Button" parent="."]
 anchor_left = 1.0
@@ -62,11 +56,6 @@ margin_bottom = -456.0
 custom_fonts/font = ExtResource( 5 )
 text = "Start Game"
 
-[node name="NumberKeyboard" parent="." instance=ExtResource( 3 )]
-margin_top = 1482.0
-margin_bottom = 486.0
-not_node_path = true
-
 [node name="VboxContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -104,6 +93,12 @@ placeholder_text = "..."
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="NumberKeyboard" parent="." instance=ExtResource( 3 )]
+anchor_top = 0.7
+margin_top = 577.0
+margin_bottom = 576.0
+not_node_path = true
 
 [node name="PlayerSelector" parent="." instance=ExtResource( 4 )]
 visible = false

@@ -33,12 +33,11 @@ PlayerManager="*res://Managers/PlayerManager.gd"
 
 [display]
 
-window/size/width=720
-window/size/height=1480
+window/size/width=1080
+window/size/height=1920
 window/size/test_width=437
 window/size/test_height=900
-window/handheld/orientation="portrait"
-window/stretch/mode="viewport"
+window/handheld/orientation="sensor"
 
 [editor_plugins]
 
@@ -54,5 +53,5 @@ quality/driver/driver_name="GLES2"
 2d/snapping/use_gpu_pixel_snap=true
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
-environment/default_clear_color=Color( 0.133333, 0.184314, 0.243137, 1 )
+environment/default_clear_color=Color( 1, 1, 1, 1 )
 environment/default_environment="res://default_env.tres"

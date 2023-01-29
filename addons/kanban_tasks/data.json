@@ -30,7 +30,8 @@
     {
       "title": "Todo",
       "tasks": [
-        0
+        0,
+        1
       ]
     },
     {
@@ -50,6 +51,11 @@
     {
       "category": 1,
       "title": "Add Buttons on the win screen",
+      "details": ""
+    },
+    {
+      "category": 1,
+      "title": "Save game",
       "details": ""
     }
   ]
