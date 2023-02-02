@@ -5,7 +5,7 @@ func _on_Create_pressed() -> void:
 		$EnterNamePopup.popup()
 		return
 	for n in PlayerManager.players.keys():
-		if $NameEdit.text == n:
+		if $VBoxContainer/NameEdit.text == n:
 			$DuplicateNamePopup.popup()
 			$VBoxContainer/NameEdit.text = ""
 			return
@@ -13,7 +13,7 @@ func _on_Create_pressed() -> void:
 	PlayerManager.players[$VBoxContainer/NameEdit.text] = PlayerManager.player_demo.duplicate()
 	PlayerManager.players[$VBoxContainer/NameEdit.text]["Color"] = $VBoxContainer/ColorSelector.color
 	PlayerManager.save_players()
-	$NameEdit.text = ""
+	$VBoxContainer/NameEdit.text = ""
 	PlayerManager.emit_signal("player_created")
 
 func _process(_delta: float) -> void:

@@ -17,18 +17,15 @@ theme = ExtResource( 1 )
 script = ExtResource( 3 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -130.0
-margin_top = -134.0
-margin_right = 882.0
-margin_bottom = 1672.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 focus_mode = 1
-color = Color( 0.133333, 0.184314, 0.243137, 1 )
 
 [node name="WinningPlayer" type="Label" parent="."]
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.3
 anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_bottom = 0.3
 margin_left = -288.5
 margin_top = -36.0
 margin_right = 288.5
@@ -40,7 +37,7 @@ align = 1
 autowrap = true
 
 [node name="ConfettiLeft" type="CPUParticles2D" parent="."]
-position = Vector2( -1, 1524 )
+position = Vector2( -1, 1550 )
 emitting = false
 amount = 10
 lifetime = 7.0
@@ -59,7 +56,7 @@ scale_amount = 3.0
 color_initial_ramp = SubResource( 1 )
 
 [node name="ConfettiRight" type="CPUParticles2D" parent="."]
-position = Vector2( 697, 1532 )
+position = Vector2( 720, 1550 )
 emitting = false
 amount = 10
 lifetime = 6.5
@@ -76,3 +73,33 @@ angular_velocity_random = 0.28
 angle_random = 1.0
 scale_amount = 3.0
 color_initial_ramp = SubResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -75.0
+margin_top = -49.0
+margin_right = 75.0
+margin_bottom = 49.0
+custom_constants/separation = 50
+
+[node name="ScoresButton" type="Button" parent="VBoxContainer"]
+margin_right = 150.0
+margin_bottom = 47.0
+rect_min_size = Vector2( 150, 0 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+text = "Scores"
+
+[node name="MenuButton" type="Button" parent="VBoxContainer"]
+margin_top = 97.0
+margin_right = 150.0
+margin_bottom = 144.0
+rect_min_size = Vector2( 150, 0 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+text = "Menu"
+
+[connection signal="pressed" from="VBoxContainer/MenuButton" to="." method="_on_MenuButton_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Menu/PlayersMenu/PlayersMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Menu/Menu.gd" type="Script" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://Scenes/Menu/LeaderboardMenu/LeaderboardMenu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Back.svg" type="Texture" id=6]
 [ext_resource path="res://Font/48.tres" type="DynamicFont" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Main"
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -86,6 +89,9 @@ rect_min_size = Vector2( 50, 50 )
 texture_normal = ExtResource( 6 )
 expand = true
 stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Main = SubResource( 1 )
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/NewGame" to="." method="_on_NewGame_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Players" to="." method="_on_Players_pressed"]

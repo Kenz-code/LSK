@@ -12,7 +12,7 @@ func _ready() -> void:
 		y._name = str(k)
 		y._color = PlayerManager.players[k]["Color"]
 		y.selection = false
-		$VBoxContainer.add_child(y)
+		$ScrollContainer/VBoxContainer.add_child(y)
 
 
 func _on_Add_pressed() -> void:
@@ -26,7 +26,9 @@ func _on_player_created():
 	y._name = str(k)
 	y._color = PlayerManager.players[k]["Color"]
 	y.selection = false
-	$VBoxContainer.add_child(y)
+	$ScrollContainer/VBoxContainer.add_child(y)
+	
+	get_node("/root/Menu").specific_back_ui = null
 
 
 func _on_Back_pressed() -> void:

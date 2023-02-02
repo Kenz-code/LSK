@@ -5,8 +5,29 @@ var leaderboard_player = preload("res://Scenes/Menu/LeaderboardMenu/LeaderboardP
 
 func _ready() -> void:
 	PlayerManager.connect("player_created",self,"_on_player_created")
-	for player in PlayerManager.players:
+	
+	reset_leaderboard()
+
+func reset_leaderboard():
+	delete_all_players()
+	PlayerManager.load_players()
+	# make leaderboard - the hard part
+	var leaderboard = make_leaderboard()
+	leaderboard = sort_leaderboard(leaderboard)
+	
+	# show the leaderboard - the easy part
+	for player in leaderboard:
 		var p = leaderboard_player.instance()
+		p.percentage = player[1]
+		p._name = player[0]
+		p._color = player[4]
+		p.wins = player[2]
+		p.losses = player[3]
+		$"%VBoxContainer".add_child(p)
+
+func make_leaderboard():
+	var leaderboard = []
+	for player in PlayerManager.players:
 		var n = PlayerManager.players[player]
 		var games_played = n["Wins"] + n["Loses"]
 		var percent
@@ -14,59 +35,30 @@ func _ready() -> void:
 			percent = (float(n["Wins"]) / float(games_played)) * 100
 		else:
 			percent = 0
-		if $"%VBoxContainer".get_child_count() != 0:
-			var duplicate = false
-			for child in $"%VBoxContainer".get_children():
-				if int(child.name) == int(percent):
-					p.name = str(int(percent) + 1)
-					duplicate = true
-			if duplicate == false:
-				p.name = str(int(percent))
-		else:
-			p.name = str(int(percent))
-		p.percentage = int(percent)
-		p._name = player
-		p._color = n.Color
-		p.wins = n.Wins
-		p.losses = n.Loses
-		$"%VBoxContainer".add_child(p)
-	
-	var pos = 0
-	var iteration = 100
-	while iteration > -1:
-		for child in $"%VBoxContainer".get_children():
-			if int(child.name) == iteration:
-				$"%VBoxContainer".move_child(child,pos)
-				pos += 1
-		iteration -= 1
+		
+		var data = [player,percent,n.Wins,n.Loses,n.Color]
+		leaderboard.append(data)
+	return leaderboard
 
+func sort_leaderboard(leaderboard : Array):
+	leaderboard.sort_custom(MyCustomSorter, "sort_decending")
+	return leaderboard
+
+
+class MyCustomSorter:
+	static func sort_decending(a, b):
+		if a[1] > b[1]:
+			return true
+		return false
 
 func _on_Back_pressed() -> void:
 	self.hide()
 
 func _on_player_created():
-	var p = leaderboard_player.instance()
-	var n = PlayerManager.players[PlayerManager.players.keys()[PlayerManager.players.keys().size()-1]]
-	var games_played = n["Wins"] + n["Loses"]
-	var percent
-	if games_played != 0:
-		percent = (float(n["Wins"]) / float(games_played)) * 100
-	else:
-		percent = 0
-	if $"%VBoxContainer".get_child_count() != 0:
-		var duplicate = false
-		for child in $"%VBoxContainer".get_children():
-			if int(child.name) == int(percent):
-				p.name = str(int(percent) + 1)
-				duplicate = true
-		if duplicate == false:
-			p.name = str(int(percent))
-	else:
-		p.name = str(int(percent))
-	p.percentage = int(percent)
-	p._name = PlayerManager.players.keys()[PlayerManager.players.keys().size()-1]
-	p._color = n.Color
-	p.wins = n.Wins
-	p.losses = n.Loses
-	$"%VBoxContainer".add_child(p)
+	reset_leaderboard()
 
+func delete_all_players():
+	var children = $'%VBoxContainer'.get_children()
+	
+	for c in children:
+		c.queue_free()

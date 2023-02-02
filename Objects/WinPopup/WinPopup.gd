@@ -16,3 +16,7 @@ func _process(delta: float) -> void:
 func emit_confetti():
 	$ConfettiLeft.emitting = true
 	$ConfettiRight.emitting = true
+
+
+func _on_MenuButton_pressed():
+	get_tree().change_scene("res://Scenes/Menu/Menu.tscn")
