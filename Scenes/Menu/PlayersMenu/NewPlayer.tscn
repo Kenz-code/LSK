@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Objects/ColorSelector/ColorSelector.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Menu/PlayersMenu/NewPlayer.gd" type="Script" id=2]
 [ext_resource path="res://1.tres" type="Theme" id=3]
+[ext_resource path="res://Font/48.tres" type="DynamicFont" id=4]
 
 [node name="NewPlayer" type="Control"]
 anchor_right = 1.0
@@ -17,69 +18,63 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="NameEdit" type="LineEdit" parent="."]
-margin_left = 82.0
-margin_top = 192.0
-margin_right = 557.0
-margin_bottom = 351.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.2
+anchor_top = 0.1
+anchor_right = 0.8
+anchor_bottom = 0.95
+
+[node name="NameEdit" type="LineEdit" parent="VBoxContainer"]
+margin_left = 66.0
+margin_top = 128.0
+margin_right = 366.0
+margin_bottom = 192.0
+rect_min_size = Vector2( 300, 64 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+max_length = 10
 placeholder_text = "Enter name here"
 caret_blink = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Create" type="Button" parent="."]
-margin_left = 258.0
-margin_top = 977.0
-margin_right = 446.0
-margin_bottom = 1171.0
-text = "Create"
+[node name="CurrentColor" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 452.0
+margin_right = 432.0
+margin_bottom = 516.0
+size_flags_horizontal = 7
+size_flags_vertical = 6
 
-[node name="Back" type="Button" parent="."]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -242.0
-margin_top = 45.0
-margin_right = -100.0
-margin_bottom = 92.0
-text = "Cancel"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CurrentColor" type="HBoxContainer" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -235.0
-margin_top = -352.0
-margin_right = 169.0
-margin_bottom = -284.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="CurrentColor"]
-margin_top = 15.0
-margin_right = 336.0
-margin_bottom = 52.0
+[node name="Label" type="Label" parent="VBoxContainer/CurrentColor"]
+margin_top = 13.0
+margin_right = 364.0
+margin_bottom = 50.0
 size_flags_horizontal = 3
 text = "Current color:"
 align = 1
 
-[node name="ColorRect" type="ColorRect" parent="CurrentColor"]
-margin_left = 340.0
-margin_right = 404.0
-margin_bottom = 68.0
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/CurrentColor"]
+margin_left = 368.0
+margin_right = 432.0
+margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 
-[node name="ColorSelector" parent="." instance=ExtResource( 1 )]
-margin_left = 233.0
-margin_top = 509.0
-margin_right = 501.0
-margin_bottom = 777.0
+[node name="ColorSelector" parent="VBoxContainer" instance=ExtResource( 1 )]
+margin_left = 0.0
+margin_top = 674.0
+margin_right = 432.0
+margin_bottom = 942.0
 mouse_filter = 2
+size_flags_horizontal = 7
+size_flags_vertical = 6
+
+[node name="Create" type="Button" parent="VBoxContainer"]
+margin_left = 88.0
+margin_top = 1068.0
+margin_right = 344.0
+margin_bottom = 1196.0
+rect_min_size = Vector2( 256, 128 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+text = "Create"
 
 [node name="EnterNamePopup" type="AcceptDialog" parent="."]
 anchor_left = 0.5
@@ -115,5 +110,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="Create" to="." method="_on_Create_pressed"]
-[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.025
+anchor_right = 0.5
+anchor_bottom = 0.025
+margin_left = -136.0
+margin_right = 136.0
+margin_bottom = 55.0
+custom_fonts/font = ExtResource( 4 )
+text = "New Player"
+
+[connection signal="pressed" from="VBoxContainer/Create" to="." method="_on_Create_pressed"]

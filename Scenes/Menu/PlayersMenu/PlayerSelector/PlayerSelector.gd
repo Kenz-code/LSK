@@ -2,7 +2,6 @@ extends Control
 
 
 var player = preload("res://Scenes/Menu/PlayersMenu/Player.tscn")
-var seperator = preload("res://Objects/Seperator/Seperator.tscn")
 
 var player_list = []
 
@@ -16,7 +15,6 @@ func _ready() -> void:
 		y._name = str(k)
 		y._color = PlayerManager.players[k]["Color"]
 		$VBoxContainer.add_child(y)
-		$VBoxContainer.add_child(seperator.instance())
 		y.connect("just_checked",self,"_on_player_just_checked",[y._name])
 		y.connect("just_unchecked",self,"_on_player_just_unchecked",[y._name])
 
@@ -49,6 +47,5 @@ func _on_player_created():
 	y._name = str(k)
 	y._color = PlayerManager.players[k]["Color"]
 	$VBoxContainer.add_child(y)
-	$VBoxContainer.add_child(seperator.instance())
 	y.connect("just_checked",self,"_on_player_just_checked",[y._name])
 	y.connect("just_unchecked",self,"_on_player_just_unchecked",[y._name])

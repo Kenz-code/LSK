@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Menu/LeaderboardMenu/LeaderboardMenu.gd" type="Script" id=1]
 [ext_resource path="res://1.tres" type="Theme" id=2]
+[ext_resource path="res://Font/48.tres" type="DynamicFont" id=3]
 
 [node name="LeaderboardMenu" type="Control"]
 anchor_right = 1.0
@@ -16,27 +17,26 @@ focus_mode = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 anchor_left = 0.1
-anchor_top = 0.1
+anchor_top = 0.15
 anchor_right = 0.9
 anchor_bottom = 0.9
 size_flags_horizontal = 3
 size_flags_vertical = 3
-scroll_vertical_enabled = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 unique_name_in_owner = true
-margin_right = 864.0
-margin_bottom = 1536.0
+margin_right = 576.0
+margin_bottom = 1140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Back" type="Button" parent="."]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -242.0
-margin_top = 45.0
-margin_right = -100.0
-margin_bottom = 90.0
-text = "Back"
-
-[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.025
+anchor_right = 0.5
+anchor_bottom = 0.025
+margin_left = -166.5
+margin_right = 166.5
+margin_bottom = 55.0
+custom_fonts/font = ExtResource( 3 )
+text = "Leaderboard"

@@ -19,7 +19,7 @@ theme = ExtResource( 1 )
 columns = 3
 
 [node name="1" type="Button" parent="Grid"]
-margin_right = 268.0
+margin_right = 178.0
 margin_bottom = 177.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -27,8 +27,8 @@ custom_fonts/font = ExtResource( 2 )
 text = "1"
 
 [node name="2" type="Button" parent="Grid"]
-margin_left = 272.0
-margin_right = 539.0
+margin_left = 182.0
+margin_right = 359.0
 margin_bottom = 177.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -36,8 +36,8 @@ custom_fonts/font = ExtResource( 2 )
 text = "2"
 
 [node name="3" type="Button" parent="Grid"]
-margin_left = 543.0
-margin_right = 810.0
+margin_left = 363.0
+margin_right = 540.0
 margin_bottom = 177.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -46,7 +46,7 @@ text = "3"
 
 [node name="4" type="Button" parent="Grid"]
 margin_top = 181.0
-margin_right = 268.0
+margin_right = 178.0
 margin_bottom = 358.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -54,9 +54,9 @@ custom_fonts/font = ExtResource( 2 )
 text = "4"
 
 [node name="5" type="Button" parent="Grid"]
-margin_left = 272.0
+margin_left = 182.0
 margin_top = 181.0
-margin_right = 539.0
+margin_right = 359.0
 margin_bottom = 358.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -64,9 +64,9 @@ custom_fonts/font = ExtResource( 2 )
 text = "5"
 
 [node name="6" type="Button" parent="Grid"]
-margin_left = 543.0
+margin_left = 363.0
 margin_top = 181.0
-margin_right = 810.0
+margin_right = 540.0
 margin_bottom = 358.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -75,7 +75,7 @@ text = "6"
 
 [node name="7" type="Button" parent="Grid"]
 margin_top = 362.0
-margin_right = 268.0
+margin_right = 178.0
 margin_bottom = 538.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -83,9 +83,9 @@ custom_fonts/font = ExtResource( 2 )
 text = "7"
 
 [node name="8" type="Button" parent="Grid"]
-margin_left = 272.0
+margin_left = 182.0
 margin_top = 362.0
-margin_right = 539.0
+margin_right = 359.0
 margin_bottom = 538.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -93,9 +93,9 @@ custom_fonts/font = ExtResource( 2 )
 text = "8"
 
 [node name="9" type="Button" parent="Grid"]
-margin_left = 543.0
+margin_left = 363.0
 margin_top = 362.0
-margin_right = 810.0
+margin_right = 540.0
 margin_bottom = 538.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -111,7 +111,7 @@ anchor_bottom = 1.0
 margin_left = 3.0
 
 [node name="<-" type="Button" parent="VBox"]
-margin_right = 267.0
+margin_right = 177.0
 margin_bottom = 357.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -124,7 +124,7 @@ __meta__ = {
 
 [node name="0" type="Button" parent="VBox"]
 margin_top = 361.0
-margin_right = 267.0
+margin_right = 177.0
 margin_bottom = 538.0
 size_flags_horizontal = 3
 size_flags_vertical = 3

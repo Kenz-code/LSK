@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://1.tres" type="Theme" id=1]
 [ext_resource path="res://Font/16.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Objects/NumberKeyboard/NumberKeyboard.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/Player/PlayerKeeper.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Back.svg" type="Texture" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
 resource_local_to_scene = true
@@ -102,10 +103,6 @@ margin_top = -134.0
 margin_right = 882.0
 margin_bottom = 1672.0
 focus_mode = 1
-color = Color( 0.133333, 0.184314, 0.243137, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ScoreInput" type="LineEdit" parent="Input/Control"]
 anchor_left = 0.5
@@ -154,12 +151,18 @@ __meta__ = {
 unique_name_in_owner = true
 line_edit_path = NodePath("../ScoreInput")
 
-[node name="Back" type="Button" parent="Input/Control"]
-margin_left = 75.0
-margin_top = 50.0
-margin_right = 175.0
-margin_bottom = 97.0
-text = "Back"
+[node name="Back" type="TextureButton" parent="Input/Control"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.1
+anchor_top = 0.025
+anchor_right = 0.1
+anchor_bottom = 0.025
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 5 )
+expand = true
+stretch_mode = 5
 
 [connection signal="pressed" from="Name" to="." method="_on_Name_pressed"]
 [connection signal="focus_entered" from="Input/Control/ColorRect" to="." method="_on_ColorRect_focus_entered"]

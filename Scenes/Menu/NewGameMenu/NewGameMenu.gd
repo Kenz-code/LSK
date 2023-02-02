@@ -5,9 +5,9 @@ func _on_Back_pressed() -> void:
 	self.hide()
 	$PlayerSelector.clear_players()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var text = PoolStringArray($NumberKeyboard.text)
-	$VboxContainer/MaxScore.text = text.join("")
+	$VboxContainer/VboxContainer/MaxScore.text = text.join("")
 
 
 func _on_ColorRect_focus_entered() -> void:
@@ -20,20 +20,21 @@ func _on_MaxScore_focus_entered() -> void:
 
 func _on_Players_pressed() -> void:
 	$PlayerSelector.show()
+	get_node("/root/Menu").specific_back_ui = $PlayerSelector
 
 
 func _on_Start_pressed() -> void:
-	if $VboxContainer/MaxScore.text == "":
+	if $VboxContainer/VboxContainer/MaxScore.text == "":
 		$EnterMaxOrRoundsPopup.popup_centered()
 		return
 	elif $PlayerSelector.player_list.size() < 1:
 		$EnterPlayersPopup.popup_centered()
 		return
 	
-	if int($VboxContainer/MaxScore.text) == 0:
+	if int($VboxContainer/VboxContainer/MaxScore.text) == 0:
 		GameManager.max_score = 2147483647
 	else:
-		GameManager.max_score = int($VboxContainer/MaxScore.text)
+		GameManager.max_score = int($VboxContainer/VboxContainer/MaxScore.text)
 	
 	GameManager.players_playing.clear()
 	for _player in $PlayerSelector.player_list:

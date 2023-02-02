@@ -11,7 +11,7 @@ var checked = false
 signal just_checked
 signal just_unchecked
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	$Label.text = _name
 	$ColorRect.color = _color
 	$ColorRect/CheckBox.visible = selection
