@@ -12,15 +12,18 @@ signal just_checked
 signal just_unchecked
 
 func _process(_delta: float) -> void:
-	$Label.text = _name
+	$HBoxContainer/Label.text = _name
 	$ColorRect.color = _color
-	$ColorRect/CheckBox.visible = selection
 
 
-func _on_CheckBox_toggled(button_pressed: bool) -> void:
-	if button_pressed == true:
-		checked = true
-		emit_signal("just_checked")
-	else:
-		checked = false
-		emit_signal("just_unchecked")
+
+
+func _on_Player_toggled(button_pressed):
+	if selection == true:
+		if button_pressed == false:
+			emit_signal("just_unchecked")
+			$HBoxContainer/Check.hide()
+		else:
+			emit_signal("just_checked")
+			$HBoxContainer/Check.show()
+

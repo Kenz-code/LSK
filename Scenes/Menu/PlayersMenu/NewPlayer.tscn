@@ -1,18 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Objects/ColorSelector/ColorSelector.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Menu/PlayersMenu/NewPlayer.gd" type="Script" id=2]
 [ext_resource path="res://1.tres" type="Theme" id=3]
-[ext_resource path="res://Font/48.tres" type="DynamicFont" id=4]
 
 [node name="NewPlayer" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 3 )
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -25,11 +21,11 @@ anchor_right = 0.8
 anchor_bottom = 0.95
 
 [node name="NameEdit" type="LineEdit" parent="VBoxContainer"]
-margin_left = 66.0
-margin_top = 128.0
-margin_right = 366.0
+margin_left = 1.0
+margin_top = 127.0
+margin_right = 431.0
 margin_bottom = 192.0
-rect_min_size = Vector2( 300, 64 )
+rect_min_size = Vector2( 430, 64 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
 max_length = 10
@@ -44,10 +40,11 @@ size_flags_horizontal = 7
 size_flags_vertical = 6
 
 [node name="Label" type="Label" parent="VBoxContainer/CurrentColor"]
-margin_top = 13.0
+margin_top = 4.0
 margin_right = 364.0
-margin_bottom = 50.0
+margin_bottom = 59.0
 size_flags_horizontal = 3
+theme_type_variation = "48"
 text = "Current color:"
 align = 1
 
@@ -59,9 +56,9 @@ rect_min_size = Vector2( 64, 64 )
 
 [node name="ColorSelector" parent="VBoxContainer" instance=ExtResource( 1 )]
 margin_left = 0.0
-margin_top = 674.0
+margin_top = 672.0
 margin_right = 432.0
-margin_bottom = 942.0
+margin_bottom = 944.0
 mouse_filter = 2
 size_flags_horizontal = 7
 size_flags_vertical = 6
@@ -115,10 +112,11 @@ anchor_left = 0.5
 anchor_top = 0.025
 anchor_right = 0.5
 anchor_bottom = 0.025
-margin_left = -136.0
-margin_right = 136.0
-margin_bottom = 55.0
-custom_fonts/font = ExtResource( 4 )
+margin_left = -220.5
+margin_right = 220.5
+margin_bottom = 72.0
+theme_type_variation = "64"
 text = "New Player"
+align = 1
 
 [connection signal="pressed" from="VBoxContainer/Create" to="." method="_on_Create_pressed"]

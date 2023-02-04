@@ -1,9 +1,10 @@
-[gd_resource type="Theme" load_steps=14 format=2]
+[gd_resource type="Theme" load_steps=15 format=2]
 
 [ext_resource path="res://Font/32.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Font/48.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Font/64.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Font/16.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Font/72.tres" type="DynamicFont" id=5]
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.988235, 0.298039, 0.247059, 1 )
@@ -106,7 +107,9 @@ shadow_offset = Vector2( 2, 2 )
 48/fonts/font = ExtResource( 2 )
 64/base_type = "Label"
 64/fonts/font = ExtResource( 3 )
-Button/fonts/font = ExtResource( 1 )
+72/base_type = "Label"
+72/fonts/font = ExtResource( 5 )
+Button/fonts/font = ExtResource( 2 )
 Button/styles/disabled = SubResource( 3 )
 Button/styles/focus = SubResource( 5 )
 Button/styles/hover = SubResource( 3 )
@@ -116,7 +119,7 @@ Label/colors/font_color = Color( 0, 0, 0, 1 )
 Label/fonts/font = ExtResource( 1 )
 LineEdit/colors/cursor_color = Color( 0.0392157, 0.0392157, 0.0392157, 1 )
 LineEdit/colors/font_color = Color( 0, 0, 0, 1 )
-LineEdit/fonts/font = ExtResource( 1 )
+LineEdit/fonts/font = ExtResource( 2 )
 LineEdit/styles/focus = SubResource( 6 )
 LineEdit/styles/normal = SubResource( 11 )
 Panel/styles/panel = SubResource( 10 )

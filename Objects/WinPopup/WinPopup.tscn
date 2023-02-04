@@ -86,17 +86,18 @@ margin_bottom = 49.0
 custom_constants/separation = 50
 
 [node name="ScoresButton" type="Button" parent="VBoxContainer"]
-margin_right = 150.0
-margin_bottom = 47.0
+margin_right = 181.0
+margin_bottom = 65.0
 rect_min_size = Vector2( 150, 0 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
 text = "Scores"
 
 [node name="MenuButton" type="Button" parent="VBoxContainer"]
-margin_top = 97.0
-margin_right = 150.0
-margin_bottom = 144.0
+margin_left = 14.0
+margin_top = 115.0
+margin_right = 166.0
+margin_bottom = 180.0
 rect_min_size = Vector2( 150, 0 )
 size_flags_horizontal = 6
 size_flags_vertical = 6

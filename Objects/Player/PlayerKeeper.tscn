@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://1.tres" type="Theme" id=1]
 [ext_resource path="res://Font/16.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Objects/NumberKeyboard/NumberKeyboard.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/Player/PlayerKeeper.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Back.svg" type="Texture" id=5]
+[ext_resource path="res://Font/32.tres" type="DynamicFont" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
 resource_local_to_scene = true
@@ -32,6 +33,7 @@ script = ExtResource( 4 )
 [node name="Name" type="Button" parent="."]
 margin_right = 174.0
 margin_bottom = 60.0
+custom_fonts/font = ExtResource( 6 )
 text = "Name"
 clip_text = true
 

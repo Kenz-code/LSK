@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Menu/PlayersMenu/NewPlayer.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Font/48.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Scenes/Menu/PlayersMenu/PlayersMenu.gd" type="Script" id=3]
 [ext_resource path="res://1.tres" type="Theme" id=4]
 [ext_resource path="res://Font/64.tres" type="DynamicFont" id=5]
@@ -40,11 +39,13 @@ anchor_left = 0.5
 anchor_top = 0.025
 anchor_right = 0.5
 anchor_bottom = 0.025
-margin_left = -89.5
-margin_right = 89.5
-margin_bottom = 55.0
-custom_fonts/font = ExtResource( 2 )
+margin_left = -220.5
+margin_right = 220.5
+margin_bottom = 72.0
+theme_type_variation = "64"
 text = "Players"
+align = 1
+valign = 1
 
 [node name="NewPlayer" parent="." instance=ExtResource( 1 )]
 visible = false

@@ -1,12 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://1.tres" type="Theme" id=1]
 [ext_resource path="res://Scenes/Menu/NewGameMenu/NewGameMenu.gd" type="Script" id=2]
 [ext_resource path="res://Objects/NumberKeyboard/NumberKeyboard.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Menu/PlayersMenu/PlayerSelector/PlayerSelector.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Font/64.tres" type="DynamicFont" id=5]
-[ext_resource path="res://Font/16.tres" type="DynamicFont" id=6]
-[ext_resource path="res://Font/48.tres" type="DynamicFont" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=1]
 
 [node name="NewGameMenu" type="Control"]
 anchor_right = 1.0
@@ -24,70 +24,79 @@ anchor_left = 0.5
 anchor_top = 0.025
 anchor_right = 0.5
 anchor_bottom = 0.025
-margin_left = -131.5
-margin_right = 131.5
-margin_bottom = 55.0
-custom_fonts/font = ExtResource( 7 )
+margin_left = -220.5
+margin_right = 220.5
+margin_bottom = 72.0
+theme_type_variation = "64"
 text = "New Game"
 align = 1
 valign = 1
 
 [node name="VboxContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.5
-anchor_top = 0.408
+anchor_top = 0.4
 anchor_right = 0.5
-anchor_bottom = 0.408
-margin_left = -193.5
-margin_top = -225.0
-margin_right = 193.5
-margin_bottom = 225.0
+anchor_bottom = 0.4
+margin_left = -283.5
+margin_top = -328.0
+margin_right = 283.5
+margin_bottom = 328.0
 
 [node name="Start" type="Button" parent="VboxContainer"]
-margin_top = 32.0
-margin_right = 387.0
-margin_bottom = 114.0
+margin_left = 90.0
+margin_top = 67.0
+margin_right = 477.0
+margin_bottom = 149.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 custom_fonts/font = ExtResource( 5 )
 text = "Start Game"
 
 [node name="Players" type="Button" parent="VboxContainer"]
-margin_left = 128.0
-margin_top = 201.0
-margin_right = 259.0
-margin_bottom = 248.0
+margin_left = 189.0
+margin_top = 295.0
+margin_right = 378.0
+margin_bottom = 360.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 text = "Players"
 
 [node name="VboxContainer" type="VBoxContainer" parent="VboxContainer"]
-margin_left = 3.0
-margin_top = 320.0
-margin_right = 383.0
-margin_bottom = 431.0
+margin_top = 449.0
+margin_right = 567.0
+margin_bottom = 646.0
 mouse_filter = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
+custom_constants/separation = 10
 
 [node name="Label" type="Label" parent="VboxContainer/VboxContainer"]
-margin_right = 380.0
-margin_bottom = 37.0
+margin_right = 567.0
+margin_bottom = 55.0
+theme_type_variation = "48"
 text = "Enter max score below"
 align = 1
 
 [node name="SubLabel" type="Label" parent="VboxContainer/VboxContainer"]
-margin_top = 41.0
-margin_right = 380.0
-margin_bottom = 60.0
-custom_fonts/font = ExtResource( 6 )
+margin_top = 65.0
+margin_right = 567.0
+margin_bottom = 102.0
 text = "or enter zero for no max score"
 align = 1
 
+[node name="HSeparator" type="HSeparator" parent="VboxContainer/VboxContainer"]
+margin_top = 112.0
+margin_right = 567.0
+margin_bottom = 122.0
+size_flags_horizontal = 3
+custom_constants/separation = 10
+custom_styles/separator = SubResource( 1 )
+
 [node name="MaxScore" type="LineEdit" parent="VboxContainer/VboxContainer"]
-margin_left = 131.0
-margin_top = 64.0
-margin_right = 249.0
-margin_bottom = 111.0
+margin_left = 194.0
+margin_top = 132.0
+margin_right = 372.0
+margin_bottom = 197.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 max_length = 6

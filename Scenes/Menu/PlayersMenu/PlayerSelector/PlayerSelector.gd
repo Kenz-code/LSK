@@ -14,7 +14,7 @@ func _ready() -> void:
 		var y = player.instance()
 		y._name = str(k)
 		y._color = PlayerManager.players[k]["Color"]
-		$VBoxContainer.add_child(y)
+		$ScrollContainer/VBoxContainer.add_child(y)
 		y.connect("just_checked",self,"_on_player_just_checked",[y._name])
 		y.connect("just_unchecked",self,"_on_player_just_unchecked",[y._name])
 
@@ -34,7 +34,7 @@ func _on_Back_pressed() -> void:
 
 func clear_players():
 	player_list = []
-	for c in $VBoxContainer.get_children():
+	for c in $ScrollContainer/VBoxContainer.get_children():
 		if c.name.find("Player") != -1:
 			c.checked = false
 			c.get_node("ColorRect/CheckBox").pressed = false
@@ -46,6 +46,6 @@ func _on_player_created():
 	var y = player.instance()
 	y._name = str(k)
 	y._color = PlayerManager.players[k]["Color"]
-	$VBoxContainer.add_child(y)
+	$ScrollContainer/VBoxContainer.add_child(y)
 	y.connect("just_checked",self,"_on_player_just_checked",[y._name])
 	y.connect("just_unchecked",self,"_on_player_just_unchecked",[y._name])
