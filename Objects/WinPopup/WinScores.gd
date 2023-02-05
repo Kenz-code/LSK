@@ -12,7 +12,9 @@ func make_list():
 		w.color = p.color
 		w._name = p.name
 		w.score = p.score
-		w.percent = stepify(p.score/GameManager.max_score*100,1)
+		w.percent = stepify(float(p.score)/float(GameManager.max_score)*100,1)
+		if w.percent > 100:
+			w.percent = 100
 		$ScrollContainer/VBoxContainer.add_child(w)
 
 

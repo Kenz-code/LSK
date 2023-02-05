@@ -32,6 +32,8 @@ func _process(delta: float) -> void:
 	$ProgressBar.value = _score
 	$HBoxContainer/Score.text = str(_score)
 	$HBoxContainer/Percent.text = str(stepify($ProgressBar.value/$ProgressBar.max_value*100,1))+"%"
+	
+	$Input/Control/Label.text = _name+"\n\nEnter score:"
 
 
 func _on_ScoreInput_focus_entered() -> void:

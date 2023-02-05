@@ -48,5 +48,5 @@ func _on_player_created():
 	y._name = str(k)
 	y._color = PlayerManager.players[k]["Color"]
 	$ScrollContainer/VBoxContainer.add_child(y)
-	y.connect("just_checked",self,"_on_player_just_checked",[y._name])
-	y.connect("just_unchecked",self,"_on_player_just_unchecked",[y._name])
+	y.connect("just_checked",self,"_on_player_just_checked",[y._name, y._color])
+	y.connect("just_unchecked",self,"_on_player_just_unchecked",[y._name, y._color])

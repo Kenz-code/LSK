@@ -30,3 +30,7 @@ func win(player):
 					PlayerManager.players[p]["Loses"] += 1
 	
 	PlayerManager.save_players()
+
+
+func _on_Dots_pressed():
+	$KeeperMenu.show()

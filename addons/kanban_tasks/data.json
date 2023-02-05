@@ -30,7 +30,6 @@
     {
       "title": "Todo",
       "tasks": [
-        0,
         1
       ]
     },
@@ -43,7 +42,7 @@
     {
       "title": "Done",
       "tasks": [
-
+        0
       ]
     }
   ],
