@@ -81,6 +81,7 @@ align = 1
 margin_top = 65.0
 margin_right = 567.0
 margin_bottom = 102.0
+theme_type_variation = "32"
 text = "or enter zero for no max score"
 align = 1
 

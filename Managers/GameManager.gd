@@ -8,5 +8,6 @@ var winner
 
 var player_score_placeholder = {
 	"name": "",
-	"score": 0
+	"score": 0,
+	"color": Color()
 }

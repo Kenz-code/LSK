@@ -36,6 +36,9 @@ func make_leaderboard():
 		else:
 			percent = 0
 		
+		# round percent
+		percent = round(percent * 10) / 10
+		
 		var data = [player,percent,n.Wins,n.Loses,n.Color]
 		leaderboard.append(data)
 	return leaderboard

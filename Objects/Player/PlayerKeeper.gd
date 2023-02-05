@@ -11,7 +11,7 @@ var player_index = -1
 func _ready() -> void:
 	$"%NumberKeyboard"._hide()
 	$ProgressBar.visible = not disable_progress_bar
-	$Percent.visible = not disable_progress_bar
+	$HBoxContainer/Percent.visible = not disable_progress_bar
 	
 	$ProgressBar.max_value = GameManager.max_score
 	
@@ -30,9 +30,8 @@ func _process(delta: float) -> void:
 	$Name.text = _name
 	
 	$ProgressBar.value = _score
-	$Score/Has.text = str(_score)
-	$Score/Needs.text = str(0)
-	$Percent.text = str(stepify($ProgressBar.value/$ProgressBar.max_value*100,1))+"%"
+	$HBoxContainer/Score.text = str(_score)
+	$HBoxContainer/Percent.text = str(stepify($ProgressBar.value/$ProgressBar.max_value*100,1))+"%"
 
 
 func _on_ScoreInput_focus_entered() -> void:

@@ -1,4 +1,4 @@
-extends GridContainer
+extends VBoxContainer
 
 
 var player = preload("res://Objects/Player/PlayerKeeper.tscn")

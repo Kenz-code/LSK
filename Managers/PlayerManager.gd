@@ -19,7 +19,6 @@ func save_players():
 		file.close()
 	else:
 		print(error)
-	print(players)
 
 func load_players():
 	var file = File.new()

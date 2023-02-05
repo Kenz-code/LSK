@@ -15,12 +15,13 @@ func _ready() -> void:
 		y._name = str(k)
 		y._color = PlayerManager.players[k]["Color"]
 		$ScrollContainer/VBoxContainer.add_child(y)
-		y.connect("just_checked",self,"_on_player_just_checked",[y._name])
-		y.connect("just_unchecked",self,"_on_player_just_unchecked",[y._name])
+		y.connect("just_checked",self,"_on_player_just_checked",[y._name, y._color])
+		y.connect("just_unchecked",self,"_on_player_just_unchecked",[y._name, y._color])
 
-func _on_player_just_checked(_name: String):
+func _on_player_just_checked(_name: String, color: Color):
 	var player_score = GameManager.player_score_placeholder.duplicate()
 	player_score["name"] = _name
+	player_score["color"] = color
 	player_list.push_back(player_score)
 
 func _on_player_just_unchecked(_name: String):
