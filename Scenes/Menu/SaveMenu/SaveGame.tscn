@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://1.tres" type="Theme" id=1]
+[ext_resource path="res://Scenes/Menu/SaveMenu/SaveGame.gd" type="Script" id=2]
+
+[node name="SaveGame" type="Button"]
+anchor_left = 0.05
+anchor_right = 0.95
+margin_bottom = 65.0
+theme = ExtResource( 1 )
+text = "November 18 2022 12:12pm"
+script = ExtResource( 2 )
+
+[connection signal="pressed" from="." to="." method="_on_SaveGame_pressed"]

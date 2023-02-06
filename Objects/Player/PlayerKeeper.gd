@@ -8,6 +8,8 @@ export (bool) var disable_progress_bar = false
 var s
 var player_index = -1
 
+signal save_game
+
 func _ready() -> void:
 	$"%NumberKeyboard"._hide()
 	$ProgressBar.visible = not disable_progress_bar
@@ -64,6 +66,7 @@ func _on_Enter_pressed() -> void:
 		if p["name"] == _name:
 			p["score"] += add_score
 	hide_everything()
+	emit_signal("save_game")
 	
 
 func hide_everything():

@@ -13,9 +13,21 @@ _global_script_classes=[ {
 "class": "ColorSwatch",
 "language": "GDScript",
 "path": "res://Objects/ColorSelector/ColorSwatch.gd"
+}, {
+"base": "Resource",
+"class": "Game",
+"language": "GDScript",
+"path": "res://Resources/GameResource.gd"
+}, {
+"base": "Resource",
+"class": "SaveGame",
+"language": "GDScript",
+"path": "res://Resources/SaveGame.gd"
 } ]
 _global_script_class_icons={
-"ColorSwatch": ""
+"ColorSwatch": "",
+"Game": "",
+"SaveGame": ""
 }
 
 [application]
@@ -30,6 +42,7 @@ config/icon="res://icon.png"
 
 GameManager="*res://Managers/GameManager.gd"
 PlayerManager="*res://Managers/PlayerManager.gd"
+SaveManager="*res://Managers/SaveManager.gd"
 
 [display]
 

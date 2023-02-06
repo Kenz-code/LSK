@@ -36,3 +36,8 @@ func _on_Back_pressed():
 	else:
 		specific_back_ui.hide()
 		specific_back_ui = null
+
+
+func _on_Save_pressed():
+	$UI/SaveMenu.show()
+	back_arrow.show()

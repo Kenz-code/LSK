@@ -3,9 +3,6 @@ extends Control
 
 var win_score_player = preload("res://Objects/WinPopup/WinScorePlayer.tscn")
 
-func _ready():
-	print(GameManager.players_playing)
-
 func make_list():
 	for p in GameManager.players_playing:
 		var w = win_score_player.instance()

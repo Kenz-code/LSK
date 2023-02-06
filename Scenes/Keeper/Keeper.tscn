@@ -41,9 +41,6 @@ size_flags_vertical = 3
 custom_constants/separation = 35
 script = ExtResource( 1 )
 
-[node name="WinPopup" parent="." instance=ExtResource( 5 )]
-visible = false
-
 [node name="Dots" type="TextureButton" parent="."]
 modulate = Color( 0, 0, 0, 1 )
 anchor_left = 0.93
@@ -56,6 +53,9 @@ rect_min_size = Vector2( 64, 64 )
 texture_normal = ExtResource( 4 )
 expand = true
 stretch_mode = 5
+
+[node name="WinPopup" parent="." instance=ExtResource( 5 )]
+visible = false
 
 [node name="KeeperMenu" parent="." instance=ExtResource( 6 )]
 visible = false

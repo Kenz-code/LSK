@@ -39,4 +39,6 @@ func _on_Start_pressed() -> void:
 	GameManager.players_playing.clear()
 	for _player in $PlayerSelector.player_list:
 		GameManager.players_playing.push_back(_player)
+	
+	GameManager.saved_game = false
 	get_tree().change_scene("res://Scenes/Keeper/Keeper.tscn")
