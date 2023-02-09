@@ -19,26 +19,34 @@ func _ready():
 		SaveManager._save_game()
 	elif GameManager.saved_game == true:
 		save = GameManager.save
+		if have_player_won()[0] != false:
+			win(have_player_won(),false)
 
 func _process(_delta: float) -> void:
+	if have_player_won()[0] != false:
+		win(have_player_won())
+
+func have_player_won():
 	if GameManager.max_score != 0:
 		if _win_popup.visible == false:
 			for p in GameManager.players_playing:
 				if p["score"] >= GameManager.max_score:
-					win(p)
+					return [true,p]
+	return [false]
 
-func win(player):
-	GameManager.winner = player
+func win(player, stats := true):
+	GameManager.winner = player[0]
 	_win_popup.show()
 	_win_popup.emit_confetti()
-	_win_popup.set_winning_player(player["name"])
-	for p in PlayerManager.players:
-		for l in GameManager.players_playing:
-			if str(l.name) == str(p):
-				if str(p) == player["name"]:
-					PlayerManager.players[p]["Wins"] += 1
-				else:
-					PlayerManager.players[p]["Loses"] += 1
+	_win_popup.set_winning_player(player[1]["name"])
+	if stats == true:
+		for p in PlayerManager.players:
+			for l in GameManager.players_playing:
+				if str(l.name) == str(p):
+					if str(p) == player[1]["name"]:
+						PlayerManager.players[p]["Wins"] += 1
+					else:
+						PlayerManager.players[p]["Loses"] += 1
 	
 	PlayerManager.save_players()
 
